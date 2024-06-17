@@ -1,4 +1,3 @@
-import { validateWaveTemplate } from 'lightning/analyticsWaveApi';
 import { LightningElement } from 'lwc';
 
 export default class BmiCalculator extends LightningElement {
@@ -8,6 +7,8 @@ export default class BmiCalculator extends LightningElement {
     inputWeight;
     inputHeight;
     inputAge;
+    result;
+    aboutMessage = false;
 
     get genders() {
         return [
@@ -43,5 +44,16 @@ export default class BmiCalculator extends LightningElement {
 
     handleAge(event) {
         this.inputAge = parseFloat(event.target.value);
+    }
+
+    reset(){
+        this.inputGender = '';
+        this.inputWeight = '';
+        this.inputHeight = '';
+        this.inputAge = '';
+    }
+
+    about() {
+        this.aboutMessage = !this.aboutMessage;
     }
 }

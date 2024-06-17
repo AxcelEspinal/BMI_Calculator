@@ -33,5 +33,11 @@
         <div class="slds-m-vertical_small">
             {result}
         </div>
+        <template lwc:if={aboutMessage}>
+            Underweight: Under 18.5
+            Normal weight: Between 18.5 and 24.9
+            Overweight: Between 25 and 29.9
+            Obesity: Over 30
+        </template>
     </lightning-card>
 </template>
