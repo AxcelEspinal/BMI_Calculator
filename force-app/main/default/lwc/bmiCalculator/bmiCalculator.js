@@ -32,4 +32,16 @@ export default class BmiCalculator extends LightningElement {
     handleGender(event) {
         this.inputGender = event.target.value;
     }
+
+    handleHeight(event) {
+        this.inputHeight = event.target.value;
+    }
+
+    handleWeight(event) {
+        this.inputWeight = event.target.value;
+    }
+
+    handleAge(event) {
+        this.inputAge = event.target.value;
+    }
 }
