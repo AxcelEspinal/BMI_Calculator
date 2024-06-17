@@ -1,16 +1,30 @@
 <template>
     <lightning-card icon-name="standard:customer_portal_users" variant="base" title="BMI Calculator" class="slds-card__body_inner">
+        <lightning-radio-group class="slds-m-vertical_small slds-align_absolute-center"
+          name="system"
+          options={systems}
+          type="button"
+          value={inputSystem}
+          variant="standard"
+          onchange={handleSystemChange}
+        ></lightning-radio-group>
+        <template lwc:if={isImperial}>
+            <lightning-input label="Height (pounds)" placeholder="Enter your height..." value={inputHeight} onchange={handleHeight}></lightning-input>
+            <lightning-input label="Weight (inches)" placeholder="Enter your weight..." value={inputWeight} onchange={handleWeight}></lightning-input>
+        </template>
+        <template lwc:else>
+            <lightning-input label="Height (kilograms)" placeholder="Enter your height..." value={inputHeight} onchange={handleHeight}></lightning-input>
+            <lightning-input label="Weight (meters)" placeholder="Enter your weight..." value={inputWeight} onchange={handleWeight}></lightning-input>
+        </template>
         <lightning-input label="Age" placeholder="Enter your age..." value={inputAge} onchange={handleAge}></lightning-input>
         <lightning-radio-group 
           name="gender"
           label="Gender"
-          options={options}
+          options={genders}
           type="button"
           value={inputGender}>
         </lightning-radio-group>
-        <lightning-input label="Height" placeholder="Enter your height..." value={inputHeight} onchange={handleHeight}></lightning-input>
-        <lightning-input label="Weight" placeholder="Enter your weight..." value={inputWeight} onchange={handleWeight}></lightning-input>
-        <lightning-button-group class="slds-m-vertical_small">
+        <lightning-button-group class="slds-m-vertical_small slds-align_absolute-center">
           <lightning-button label="Calculate BMI" variant="brand" onclick={calculate}></lightning-button>
           <lightning-button label="Reset" variant="destructive-text" onclick={reset}></lightning-button>
           <lightning-button label="About" onclick={about}></lightning-button>
