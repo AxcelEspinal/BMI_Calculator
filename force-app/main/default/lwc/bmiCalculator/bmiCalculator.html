@@ -1,0 +1,22 @@
+<template>
+    <lightning-card icon-name="standard:customer_portal_users" variant="base" title="BMI Calculator" class="slds-card__body_inner">
+        <lightning-input label="Age" placeholder="Enter your age..." value={inputAge} onchange={handleAge}></lightning-input>
+        <lightning-radio-group 
+          name="gender"
+          label="Gender"
+          options={options}
+          type="button"
+          value={inputGender}>
+        </lightning-radio-group>
+        <lightning-input label="Height" placeholder="Enter your height..." value={inputHeight} onchange={handleHeight}></lightning-input>
+        <lightning-input label="Weight" placeholder="Enter your weight..." value={inputWeight} onchange={handleWeight}></lightning-input>
+        <lightning-button-group class="slds-m-vertical_small">
+          <lightning-button label="Calculate BMI" variant="brand" onclick={calculate}></lightning-button>
+          <lightning-button label="Reset" variant="destructive-text" onclick={reset}></lightning-button>
+          <lightning-button label="About" onclick={about}></lightning-button>
+        </lightning-button-group>
+        <div class="slds-m-vertical_small">
+            {result}
+        </div>
+    </lightning-card>
+</template>
