@@ -2,8 +2,12 @@ import { validateWaveTemplate } from 'lightning/analyticsWaveApi';
 import { LightningElement } from 'lwc';
 
 export default class BmiCalculator extends LightningElement {
-    inputSystem;
-    isImperial;
+    inputSystem = 'Metric';
+    isImperial = false;
+    inputGender;
+    inputWeight;
+    inputHeight;
+    inputAge;
 
     get genders() {
         return [
@@ -23,5 +27,9 @@ export default class BmiCalculator extends LightningElement {
         this.inputSystem = event.target.value;
         this.inputSystem == 'Imperial'? this.isImperial = true: this.isImperial=false;
         console.log(this.isImperial);
+    }
+
+    handleGender(event) {
+        this.inputGender = event.target.value;
     }
 }

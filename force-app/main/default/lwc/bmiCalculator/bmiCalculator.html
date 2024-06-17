@@ -22,7 +22,8 @@
           label="Gender"
           options={genders}
           type="button"
-          value={inputGender}>
+          value={inputGender}
+          onchange={handleGender}>
         </lightning-radio-group>
         <lightning-button-group class="slds-m-vertical_small slds-align_absolute-center">
           <lightning-button label="Calculate BMI" variant="brand" onclick={calculate}></lightning-button>
