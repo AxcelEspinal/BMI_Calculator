@@ -27,7 +27,8 @@ export default class BmiCalculator extends LightningElement {
     handleSystemChange(event) {
         this.inputSystem = event.target.value;
         this.inputSystem == 'Imperial'? this.isImperial = true: this.isImperial=false;
-        console.log(this.isImperial);
+        this.inputWeight = '';
+        this.inputHeight = '';
     }
 
     handleGender(event) {
@@ -55,5 +56,14 @@ export default class BmiCalculator extends LightningElement {
 
     about() {
         this.aboutMessage = !this.aboutMessage;
+    }
+
+    handleCalculate(){
+
+        if(this.inputSystem == "Metric") {
+            this.result = this.inputWeight / (this.inputHeight ** 2);
+        } else {
+            this.result = (this.inputWeight / (this.inputHeight ** 2)) * 703;
+        }
     }
 }

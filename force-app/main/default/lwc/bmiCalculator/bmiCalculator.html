@@ -9,12 +9,12 @@
           onchange={handleSystemChange}
         ></lightning-radio-group>
         <template lwc:if={isImperial}>
-            <lightning-input type="number" label="Height (pounds)" placeholder="Enter your height..." value={inputHeight} onchange={handleHeight}></lightning-input>
-            <lightning-input type="number" label="Weight (inches)" placeholder="Enter your weight..." value={inputWeight} onchange={handleWeight}></lightning-input>
+            <lightning-input type="number" label="Height (inches)" placeholder="Enter your height..." value={inputHeight} onchange={handleHeight}></lightning-input>
+            <lightning-input type="number" label="Weight (pounds)" placeholder="Enter your weight..." value={inputWeight} onchange={handleWeight}></lightning-input>
         </template>
         <template lwc:else>
-            <lightning-input type="number" label="Height (kilograms)" placeholder="Enter your height..." value={inputHeight} onchange={handleHeight}></lightning-input>
-            <lightning-input type="number" label="Weight (meters)" placeholder="Enter your weight..." value={inputWeight} onchange={handleWeight}></lightning-input>
+            <lightning-input type="number" label="Height (meters)" placeholder="Enter your height..." value={inputHeight} onchange={handleHeight}></lightning-input>
+            <lightning-input type="number" label="Weight (kilograms)" placeholder="Enter your weight..." value={inputWeight} onchange={handleWeight}></lightning-input>
         </template>
         <lightning-input type="number" label="Age" placeholder="Enter your age..." value={inputAge} onchange={handleAge}></lightning-input>
         <lightning-radio-group 
@@ -26,12 +26,12 @@
           onchange={handleGender}>
         </lightning-radio-group>
         <lightning-button-group class="slds-m-vertical_small slds-align_absolute-center">
-          <lightning-button label="Calculate BMI" variant="brand" onclick={calculate}></lightning-button>
+          <lightning-button label="Calculate BMI" variant="brand" onclick={handleCalculate}></lightning-button>
           <lightning-button label="Reset" variant="destructive-text" onclick={reset}></lightning-button>
           <lightning-button label="About" onclick={about}></lightning-button>
         </lightning-button-group>
         <div class="slds-m-vertical_small">
-            {result}
+            Your BMI is {result}
         </div>
         <template lwc:if={aboutMessage}>
             <ul>
